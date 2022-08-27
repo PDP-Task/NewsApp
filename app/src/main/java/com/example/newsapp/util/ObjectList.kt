@@ -1,8 +1,23 @@
 package com.example.newsapp.util
 
 import com.example.newsapp.R
+import com.example.newsapp.model.NewsImage
 
 object ObjectList {
+    val arr = mutableListOf(
+        "Sports",
+        "Politics",
+        "Life",
+        "Gaming",
+        "Animals",
+        "Nature",
+        "Food",
+        "Art",
+        "History",
+        "Fashion",
+        "Covid 19",
+        "Middle East"
+    )
     fun imageList(): List<Int> {
         return listOf(
             R.drawable.img2,
@@ -23,6 +38,13 @@ object ObjectList {
             "\uD83C\uDFA8   Art",
             "\uD83D\uDCDC   History",
             "\uD83D\uDC57   Fashion",
+        )
+    }
+    fun newsImagesList(): MutableList<NewsImage> {
+        return mutableListOf(
+            NewsImage("Politics","The latest situation in the presidential election", R.drawable.img1),
+            NewsImage("Sport","The latest situation in the presidential election", R.drawable.img2),
+            NewsImage("Art","An updated daily front page", R.drawable.img3),
         )
     }
 }

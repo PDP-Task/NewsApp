@@ -20,10 +20,12 @@ class SplashActivity : AppCompatActivity() {
                 if (sharedPref.getFinish()) {
                     Intent(this@SplashActivity, HomeActivity::class.java).also {
                         startActivity(it)
+                        finish()
                     }
                 } else {
                     Intent(this@SplashActivity, MainActivity::class.java).also {
                         startActivity(it)
+                        finish()
                     }
                 }
             }

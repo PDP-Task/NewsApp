@@ -25,6 +25,10 @@
         android:label="fragment_main_board"
         tools:layout="@layout/fragment_main_board" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_mainBoardFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
     </fragment>
