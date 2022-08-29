@@ -25,6 +25,8 @@
     <string name="animal">Animals</string>
     <string name="nat">Nature</string>
     <string name="rec">Recommended for you</string>
+    <string name="categories">Categories</string>
+    <string name="of">Thousands of articles in each category</string>
 
     <dimen name="width">10dp</dimen>
     <dimen name="height">5dp</dimen>

@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
 import com.example.newsapp.adapter.TabLayoutAdapter
+import com.example.newsapp.adapter.VerAdapter
 import com.example.newsapp.databinding.BackLayoutBinding
 import com.example.newsapp.databinding.FragmentHomeBinding
 import com.example.newsapp.util.ObjectList
@@ -18,6 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var verAdapter: VerAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,10 +33,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
+        initViews(view)
     }
 
-    private fun initViews() {
+    private fun initViews(view: View) {
+        verAdapter = VerAdapter()
         val tabLayoutAdapter = TabLayoutAdapter()
         tabLayoutAdapter.submitList(ObjectList.newsImagesList())
         binding.viewPager.adapter = tabLayoutAdapter
@@ -63,6 +69,13 @@ class HomeFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab?) { }
         })
+        verAdapter.submitList(ObjectList.verImageList())
+        binding.recyclerViewVer.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewVer.adapter = verAdapter
+        tabLayoutAdapter.onClick = { newImage ->
+            val bundle = bundleOf("news" to newImage)
+            view.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, bundle)
+        }
     }
 
     override fun onDestroyView() {

@@ -2,6 +2,7 @@ package com.example.newsapp.util
 
 import com.example.newsapp.R
 import com.example.newsapp.model.NewsImage
+import com.example.newsapp.model.VerImage
 
 object ObjectList {
     val arr = mutableListOf(
@@ -45,6 +46,25 @@ object ObjectList {
             NewsImage("Politics","The latest situation in the presidential election", R.drawable.img1),
             NewsImage("Sport","The latest situation in the presidential election", R.drawable.img2),
             NewsImage("Art","An updated daily front page", R.drawable.img3),
+        )
+    }
+    fun verImageList(): List<VerImage> {
+        return listOf(
+            VerImage(
+                title = "UI/UX Design",
+                desc = "A Simple Trick For Creating Color Palettes Quickly",
+                backImage = R.drawable.img1
+            ),
+            VerImage(
+                title = "UI/UX Design",
+                desc = "A Simple Trick For Creating Color Palettes Quickly",
+                backImage = R.drawable.img1
+            ),
+            VerImage(
+                title = "UI/UX Design",
+                desc = "A Simple Trick For Creating Color Palettes Quickly",
+                backImage = R.drawable.img1
+            )
         )
     }
 }

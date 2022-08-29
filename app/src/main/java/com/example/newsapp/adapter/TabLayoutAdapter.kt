@@ -10,6 +10,7 @@ import com.example.newsapp.model.NewsImage
 
 class TabLayoutAdapter :
     ListAdapter<NewsImage, TabLayoutAdapter.TablayoutViewHolder>(DiffCallBack()) {
+    lateinit var onClick: (NewsImage) -> Unit
     private class DiffCallBack : DiffUtil.ItemCallback<NewsImage>() {
         override fun areItemsTheSame(oldItem: NewsImage, newItem: NewsImage): Boolean {
             return oldItem.title == newItem.title
@@ -41,6 +42,9 @@ class TabLayoutAdapter :
                 textTitle.text = newItem.title
                 textDesc.text = newItem.desc
                 imageView.setImageResource(newItem.backImage)
+            }
+            itemView.setOnClickListener {
+                onClick(newItem)
             }
         }
     }

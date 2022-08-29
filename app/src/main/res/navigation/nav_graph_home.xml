@@ -9,7 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.example.newsapp.fragment.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.newsapp.fragment.main.CategoryFragment"
@@ -23,5 +31,14 @@
     <fragment
         android:id="@+id/bookmarkFragment"
         android:name="com.example.newsapp.fragment.main.BookmarkFragment"
-        android:label="BookmarkFragment" />
+        android:label="BookmarkFragment" >
+        <action
+            android:id="@+id/action_bookmarkFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.newsapp.fragment.main.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

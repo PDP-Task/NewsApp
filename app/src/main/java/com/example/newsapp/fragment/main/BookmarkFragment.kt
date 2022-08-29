@@ -5,15 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.R
+import com.example.newsapp.adapter.VerAdapter
+import com.example.newsapp.util.ObjectList
 
-class BookmarkFragment : Fragment() {
+class BookmarkFragment : Fragment(R.layout.fragment_bookmark_fragmetn) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bookmark_fragmetn, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews(view)
+
+    }
+
+    private fun initViews(view: View) {
+        val verAdapter = VerAdapter()
+        verAdapter.submitList(ObjectList.verImageList())
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = verAdapter
+        }
     }
 }
